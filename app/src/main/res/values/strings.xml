@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Zabbix mobile interface</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_async_task_get_graph">AsyncTaskGetGraph</string>
+    <string name="title_activity_async_task_get_choosen_graph">AsyncTaskGetChoosenGraph</string>
+    <string name="title_activity_async_task_get_history">AsyncTaskGetHistory</string>
+    <string name="title_activity_async_task_get_triggers">AsyncTaskGetTriggers</string>
+    <string name="graphs">Graphs</string>
+    <string name="triggers">Triggers</string>
+    <string name="items">Items</string>
+
+</resources>
