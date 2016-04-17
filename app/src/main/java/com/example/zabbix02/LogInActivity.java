@@ -39,8 +39,7 @@ import android.widget.Toast;
 
 public class LogInActivity extends Activity implements OnClickListener {
 
-//lietotaajvaarda aizpildiisanas lauks	
-	
+//lietotaajvaarda aizpildiisanas lauks
 	private EditText usrName;
 	
 //paroles aizpildiisanas lauks	
