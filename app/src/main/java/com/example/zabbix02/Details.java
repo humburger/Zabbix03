@@ -21,7 +21,6 @@ public class Details {
 	public String getDetails() {
 		return details;
 	}
-
 	public String getData() {
 		return data;
 	}
