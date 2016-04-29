@@ -152,15 +152,29 @@ public class GraphActivity extends Activity {
 			data = new GraphViewData[num];
 					
 					for (int j = 0; j < valueCount; j++) {
-						
-					data[j] = new GraphViewData(
-							
-//buutu jaaliek laiku, bet ne taa notiek datu atteelosana						
-							j
-							
+
+                        if (history != null) {
+                            data[j] = new GraphViewData(
+
+//buutu jaaliek laiku, bet ne taa notiek datu atteelosana
+                                    j
+
 //							Double.parseDouble( itemClock [ j ] )
-							
-							, Double.parseDouble( history [ i ].getValue( j ) ));
+
+                                    , Double.parseDouble( history [ i ].getValue( j ) ));
+                        } else {
+                            //ja nav vertibas
+                            data[j] = new GraphViewData(
+
+//buutu jaaliek laiku, bet ne taa notiek datu atteelosana
+                                    j
+
+//							Double.parseDouble( itemClock [ j ] )
+
+                                    , Double.parseDouble( String.valueOf(zero) ));
+                        }
+						
+
 					
 					GraphViewSeries[i] = new GraphViewSeries( itemName[i],
 							
@@ -244,6 +258,7 @@ public class GraphActivity extends Activity {
 		Thread drawGraphTask = new Thread(new Task());
 		
 		drawGraphTask.start();
+        //drawGraphTask.interrupt();    //https://www.securecoding.cert.org/confluence/display/java/THI05-J.+Do+not+use+Thread.stop()+to+terminate+threads
 	}
 //
 // jauna processa klase
@@ -302,16 +317,23 @@ public class GraphActivity extends Activity {
 										for (int i = 0; i < itemCount; i++) {
 											
 											data = new GraphViewData[num];
-											
-											value = new GraphViewData(ii, Double.parseDouble( history[i].getValue(zero) ));
-											
+
+                                            if (history != null) {
+                                                value = new GraphViewData(ii, Double.parseDouble( history[i].getValue(zero) ));
+                                            } else {
+                                                //ja nav vertibas
+                                                value = new GraphViewData(ii, Double.parseDouble( String.valueOf(zero) ));
+                                            }
+
 											GraphViewSeries[ i ].appendData(value, true, num);
 										}
 									}
 								} );
 						
-					} else 
-							stopThread(drawGraphTask);
+					} else {
+						stopThread(drawGraphTask);
+                        break;
+					}
 				}
 			}
 		}

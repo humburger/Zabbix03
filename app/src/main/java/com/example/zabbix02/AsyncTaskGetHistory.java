@@ -1,5 +1,6 @@
 package com.example.zabbix02;
 
+import java.io.*;
 import java.io.IOException;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -22,7 +23,7 @@ public class AsyncTaskGetHistory extends AsyncTask<Void, Void, ItemHistory[]> {
 	private String graphName;
 	private String hostID;
 	private String graphID;
-	private String uiMssg;
+	private String uiMssg = "";
 	private String[] itemID = null;
 	private String[] graphData = null;
 	private String[] itemClock = null;
@@ -40,7 +41,7 @@ public class AsyncTaskGetHistory extends AsyncTask<Void, Void, ItemHistory[]> {
 		this.zabbixApiUrl = zabbixApiUrl;
 		this.hostName = hostName;
 		this.graphName = graphName;
-		this.context = context;
+		this.context = activity;
 	}
 
 //fona uzdevums ieguust datus no servera	
@@ -65,7 +66,12 @@ public class AsyncTaskGetHistory extends AsyncTask<Void, Void, ItemHistory[]> {
 		sb0.append("\"id\":\"1\"}");
 
 		String sb0String = sb0.toString();
-		Log.e("AsyncTaskGetHistory host.get", sb0String);
+		// http://www.tutorialspoint.com/java/java_string_split.htm
+		for (String retval: sb0String.split("; ", 2)){
+			Log.e("AsyncTaskGetHistory host.get", retval);
+			Log.e("", "\n");
+		}
+
 
 		try {
 // tiek nodibinaati sakari ar serveri un ieguuti dati par resursdatoriem

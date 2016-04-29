@@ -305,6 +305,10 @@ public class LogInActivity extends Activity implements OnClickListener {
 //ja gadaas tuksaas veertiibas, tad taas tiek aizpildiitas ar "0", lai var sekmiigi uzziimeet grafiku		
 	public static ItemHistory[] nullToZero(ItemHistory[] history, int valueCount) {
 		
+		if (history == null) {
+			return history;
+		}
+
 		for (int i = 0; i < history.length; i++) {
 			for (int j = 0; j < valueCount; j++) {
 
