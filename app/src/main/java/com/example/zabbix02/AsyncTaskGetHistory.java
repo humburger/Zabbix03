@@ -218,8 +218,6 @@ public class AsyncTaskGetHistory extends AsyncTask<Void, Void, ItemHistory[]> {
 			for (int i = 0; i < itemCount; i++ ) {
 				
 				history[i] = LogInActivity.getItemHistory(entityString, count, itemID[i]);
-				
-				
 			}
 			
 			return history;
@@ -244,7 +242,7 @@ public class AsyncTaskGetHistory extends AsyncTask<Void, Void, ItemHistory[]> {
 //kluudu gadiijumaa tiek izdots pazinojums		
 		if (result == null) {
 			
-			Toast.makeText(context, uiMssg, Toast.LENGTH_LONG).show();
+			//Toast.makeText(context, uiMssg, Toast.LENGTH_LONG).show();
 		}
 	}
 }
