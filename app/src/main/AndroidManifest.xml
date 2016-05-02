@@ -39,7 +39,7 @@
         <activity android:name=".TriggerListActivity"></activity>
         <activity android:name=".TriggerActivity"></activity>
 
-        <!-- Declare Widget in the Application Manifest -
+        <!-- Declare Widget in the Application Manifest -->
         <receiver android:name=".ZabbixWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -48,7 +48,7 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/zabbix_widget_info" />
-        </receiver> -->
+        </receiver>
     </application>
 
 </manifest>
