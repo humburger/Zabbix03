@@ -11,5 +11,7 @@
     <string name="graphs">Graphs</string>
     <string name="triggers">Triggers</string>
     <string name="items">Items</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 
 </resources>

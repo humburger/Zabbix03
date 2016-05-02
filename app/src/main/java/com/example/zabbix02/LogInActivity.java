@@ -88,7 +88,7 @@ public class LogInActivity extends Activity implements OnClickListener {
 
 		 url = zabbixUrl.getText().toString();
 
-		zabbixApiUrl = "http://" + url + "/zabbix/api_jsonrpc.php";
+		 zabbixApiUrl = "http://" + url + "/zabbix/api_jsonrpc.php";
 		
 // ja visi lauki ir aizpildiiti, tad to veertiibas padod asinhronaa uzdevuma klasei, kas izpilda pieprasiijuma izpildi Zabbix serverim 
 		if (!username.equals("") && !password.equals("") && !url.equals(""))

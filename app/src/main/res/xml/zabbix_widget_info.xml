@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--minWidth and minHeight specify the minimum width and height the widget can have-->
+    <!--updatePeriodMillis specifies the update frequency in milliseconds for the widget-->
+    <!--widgetCategory attribute. This specifies if your widget can be available on the lock screen as well as on the home screen-->
+
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="120dp"
+    android:minHeight="60dp"
+    android:updatePeriodMillis="1800000"
+    android:initialLayout="@layout/zabbix_widget"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen|keyguard"
+    android:previewImage="@drawable/walle">
+</appwidget-provider>
