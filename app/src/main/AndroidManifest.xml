@@ -9,7 +9,6 @@
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -28,19 +27,20 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HostListActivity"></activity>
-        <activity android:name=".GraphActivity"></activity>
-        <activity android:name=".GraphListActivity"></activity>
-        <activity android:name=".HostDetailsActivity"></activity>
-        <activity android:name=".ItemListActivity"></activity>
-        <activity android:name=".TriggerListActivity"></activity>
-        <activity android:name=".TriggerActivity"></activity>
+        <activity android:name=".HostListActivity" />
+        <activity android:name=".GraphActivity" />
+        <activity android:name=".GraphListActivity" />
+        <activity android:name=".HostDetailsActivity" />
+        <activity android:name=".ItemListActivity" />
+        <activity android:name=".TriggerListActivity" />
+        <activity android:name=".TriggerActivity" />
 
         <!-- Declare Widget in the Application Manifest -->
-        <receiver android:name=".ZabbixWidget">
+      <!--  <receiver android:name=".ZabbixWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -48,6 +48,15 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/zabbix_widget_info" />
+        </receiver> -->
+        <receiver android:name=".LogInWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/log_in_widget_info" />
         </receiver>
     </application>
 

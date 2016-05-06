@@ -33,6 +33,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -47,7 +49,7 @@ public class LogInActivity extends Activity implements OnClickListener {
 	
 //servera adreses aizpildiisanas lauks
 	private EditText zabbixUrl;
-	
+
 //pieteiksanaas poga	
 	private Button LogIn;
 
@@ -75,6 +77,17 @@ public class LogInActivity extends Activity implements OnClickListener {
 		
 //uzstaada funkciju, kura tiek palaista nospiezot pieteiksanaas poga
 		LogIn.setOnClickListener(this);
+
+		/*final String[] COUNTRIES = new String[] {
+				"Belgium", "France", "Italy", "Germany", "Spain"
+		};
+
+		// teksta redigesanas lauks ar vesturi
+		//http://stackoverflow.com/questions/14978676/edittext-with-history
+		ArrayAdapter<String> adapterUsr = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, COUNTRIES);
+		ArrayAdapter<String> adapterZabbixUrl = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, COUNTRIES);
+		usrName.setAdapter(adapterUsr);
+		zabbixUrl.setAdapter(adapterZabbixUrl); */
 	}
 
 	// pieteiksanaas sisteemai

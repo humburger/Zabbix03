@@ -6,7 +6,7 @@
     android:orientation="vertical"
     tools:context=".LogInActivity" >
 
-   , <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -23,14 +23,16 @@
             android:id="@+id/usrName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Username: "
+            android:text="@string/log_in_username"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
             android:id="@+id/usrNameEdit"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:inputType="textAutoComplete" >
+            android:inputType="textAutoComplete"
+            android:hint="@string/example_log_in_username"
+            android:text="">
 
             <requestFocus android:layout_width="match_parent" />
         </EditText>
@@ -39,7 +41,7 @@
             android:id="@+id/pssw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password: "
+            android:text="@string/log_in_pssw"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
@@ -52,21 +54,22 @@
             android:id="@+id/zabbixUrl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Zabbix server address: "
+            android:text="@string/zabbix_server_address"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
             android:id="@+id/urlEdit"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:inputType="textAutoComplete" 
-            android:text="" />
+            android:inputType="textAutoComplete"
+            android:text=""
+            android:hint="@string/example_zabbix_server_address" />
 
         <Button
             android:id="@+id/LogIn"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Login" />
+            android:text="@string/login" />
     </LinearLayout>
 
 </LinearLayout>

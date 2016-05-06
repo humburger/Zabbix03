@@ -13,5 +13,11 @@
     <string name="items">Items</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+    <string name="log_in_username">Username: </string>
+    <string name="example_log_in_username">MyUserName</string>
+    <string name="log_in_pssw">Password: </string>
+    <string name="login">Login</string>
+    <string name="zabbix_server_address">Zabbix server address: </string>
+    <string name="example_zabbix_server_address">myzabbix.com</string>
 
 </resources>
