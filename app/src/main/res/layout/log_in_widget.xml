@@ -4,27 +4,21 @@
     android:layout_height="match_parent"
     android:padding="@dimen/widget_margin"
     android:background="#55000000">
+        <!--https://laaptu.wordpress.com/2013/07/19/android-app-widget-with-listview/-->
+        <!-- saraksta skats logrikam -->
+        <ListView
+            android:id="@+id/listViewWidget"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-        <!--<TextView
-            android:id="@+id/usrName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/log_in_username"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
+        <!-- tukss skats, ja saraksta vienumi ir tuksi -->
         <TextView
-            android:id="@+id/usrNameEdit"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textAutoComplete"
-            android:hint="@string/example_log_in_username"
-            android:text=""
-            style="@android:style/Widget.EditText"/>
--->
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="LogIN"
-            android:id="@+id/LogIn"
-            android:layout_gravity="center_horizontal"/>
+            android:id="@+id/empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/login"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:visibility="gone" />
 </LinearLayout>

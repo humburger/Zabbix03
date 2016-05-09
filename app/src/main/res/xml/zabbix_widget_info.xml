@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+    <!--https://laaptu.wordpress.com/2013/07/19/android-app-widget-with-listview/-->
+
+    <!--android:configure specify an activity to be launched,when you first install widget(drag n drop widget to homescreen) we will ignore this now-->
     <!--minWidth and minHeight specify the minimum width and height the widget can have-->
     <!--updatePeriodMillis specifies the update frequency in milliseconds for the widget-->
     <!--widgetCategory attribute. This specifies if your widget can be available on the lock screen as well as on the home screen-->
 
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:minWidth="120dp"
     android:minHeight="60dp"
     android:updatePeriodMillis="1800000"

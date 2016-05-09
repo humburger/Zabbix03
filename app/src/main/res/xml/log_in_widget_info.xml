@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!-- android:configure
+Activity to be launched,when you first install widget(drag n drop widget to homescreen) we will ignore this now -->
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:configure="com.example.zabbix02.LogInActivity"
     android:minHeight="60dp"
     android:minWidth="120dp"
     android:updatePeriodMillis="1800000"
