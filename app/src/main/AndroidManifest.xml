@@ -38,10 +38,11 @@
         <activity android:name=".ItemListActivity" />
         <activity android:name=".TriggerListActivity" />
         <activity android:name=".TriggerActivity" />
+        <activity android:name=".MainListActivity" />
 
         <!-- Declare Widget in the Application Manifest -->
 
-        <receiver android:name=".ZabbixWidgetProvider">
+        <!--<receiver android:name=".ZabbixWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -53,7 +54,7 @@
 
         <service
             android:name=".ZabbixWidgetService"
-            android:permission="android.permission.BIND_REMOTEVIEWS" />
+            android:permission="android.permission.BIND_REMOTEVIEWS" />-->
     </application>
 
 </manifest>

@@ -19,5 +19,7 @@
     <string name="login">Login</string>
     <string name="zabbix_server_address">Zabbix server address: </string>
     <string name="example_zabbix_server_address">myzabbix.com</string>
+    <string name="all_hosts">All hosts</string>
+
 
 </resources>

@@ -136,30 +136,30 @@ public class LogInActivity extends Activity implements OnClickListener {
 		return client.execute(httpPost);
 	}
 
-//laika ziimogu konvertaacija uz datumu un laiku; 
-//	http://sluse.com/view/20654967 			
+//laika ziimogu konvertaacija uz datumu un laiku;
+//	http://sluse.com/view/20654967
 		public static String convertTimestamp(long epochSeconds, String formatString) {
-			
+
 		    Date date = new Date(epochSeconds * 1000);
 
 		    SimpleDateFormat format = new SimpleDateFormat(formatString);
-		    
+
 		    return format.format(date);
 		}
-		
+
 //Json datu parseesana - JSON teksts ar datiem, mekleejamaa informaacija, saliidzinaamais parametrs, indikators datu saliidzinaasanas vajadziibai
 		public static String[] getJsonParameters(String entityString, String parameter, String equalParameter, String equal)
 
 				throws IOException{ //izdodamaas kluudas un izneemumi
-			
+
 			String[] value;
 			String path = "result";
-			
+
 //tiek sagatavots masiivs datu saglabaasanai, vispirms nosakot masiiva izmeerus
 			int count = LogInActivity.getCount(entityString);
 			value = new String[count];
 
-//tiek veikta JSON datu paarveidosana uz klases struktuuru, kuru peec tam apstaigaas un nolasiis vajadziigos datus 
+//tiek veikta JSON datu paarveidosana uz klases struktuuru, kuru peec tam apstaigaas un nolasiis vajadziigos datus
 			ObjectMapper mapper = new ObjectMapper();
 
 			JsonNode rootNode = mapper.readValue(entityString, JsonNode.class);
@@ -169,69 +169,69 @@ public class LogInActivity extends Activity implements OnClickListener {
 
 // paarstaigaasana ar iteratoru
 			Iterator<JsonNode> list = resultNode.elements();
-			
+
 			int i = 0;
-			
-//ja tiek mekleetas konkreetas parametra veertiibas	
+
+//ja tiek mekleetas konkreetas parametra veertiibas
 			if (equal != null) {
-				
+
 // ar iteratoru tiek apstaigaata visa kopa atrodot veertiibu, peec parametra nosaukuma
 				do {
 					JsonNode element = list.next();
-					
+
 //ja tiek atrasts parametrs, tad taa veertiiba tiek paarveidota par string veertiibu bez peedinaam
 					if ( element.path( equalParameter ).toString().replaceAll("\"", "")
-							
+
 							.equals(equal) ) {
 
-//ja nav veertiibas, tad to aizvieto ar 0, lai var siis veertiibas izmantot grafika ziimeesanaa 						
-						if ( element.path( parameter ).toString().replaceAll("\"", "") == null 
-								
+//ja nav veertiibas, tad to aizvieto ar 0, lai var siis veertiibas izmantot grafika ziimeesanaa
+						if ( element.path( parameter ).toString().replaceAll("\"", "") == null
+
 								|| element.path( parameter ).toString().equals("") ) {
-							
+
 							value[i] = "0";
-							
+
 						} else {
-							
+
 							value[i] = element.path( parameter ).toString()
 									.replaceAll("\"", "");
 						}
 						break;
 					}
-					
-//kameer visi parametri nav apstaigaati tiek turpinaata datu mekleesana un nolasiisana		
-					
+
+//kameer visi parametri nav apstaigaati tiek turpinaata datu mekleesana un nolasiisana
+
 				} while (list.hasNext());
-				
-//ja ir vajadziigi visi parametri ar vienu nosaukumu, tiek veiktas taas pasas darbiibas, tikai bez saliidzinaasanas ar konkreetu parametru				
+
+//ja ir vajadziigi visi parametri ar vienu nosaukumu, tiek veiktas taas pasas darbiibas, tikai bez saliidzinaasanas ar konkreetu parametru
 			} else {
-				
+
 // ar iteratoru tiek apstaigaata visa parametru kopa
 				do {
 					JsonNode element = list.next();
-			
-//kaa jau bija iepreiks, visus rezultaatus nolasa un paarveido par string veertiibu bez peedinaam					
+
+//kaa jau bija iepreiks, visus rezultaatus nolasa un paarveido par string veertiibu bez peedinaam
 						value[i] = element.path(parameter).toString()
 								.replaceAll("\"", "");
-						
+
 						i++;
 
 					} while (list.hasNext());
 			}
-			
-//tiek atgriezts veertiibu masiivs			
+
+//tiek atgriezts veertiibu masiivs
 			return value;
 		}
-		
+
 //nosaka Json parametru skaitu
 		public static int getCount(String entityString)
-		
+
 				throws IOException{
-			
+
 			int count = 0;
-			
+
 			String path = "result";
-			
+
 			ObjectMapper mapper = new ObjectMapper();
 
 			JsonNode rootNode = mapper.readValue(entityString, JsonNode.class);
@@ -244,34 +244,34 @@ public class LogInActivity extends Activity implements OnClickListener {
 
 // ar iteratoru tiek apstaigaata visa tikai noskaidrojot visu paramteru kopiigo skaitu
 			do {
-				
+
 				JsonNode element = list.next();
-				
+
 				 count++;
-				
+
 				} while (list.hasNext());
-	
-//tiek izdots parametru skaits			
+
+//tiek izdots parametru skaits
 			return count;
-		} 
-		
+		}
+
 //ieguust vienumu veestures datus atbilstosi laika pluusmai
 		public static ItemHistory getItemHistory( String entityString, int valueCount, String equal)
-		
+
 				throws IOException{
 
 			ItemHistory history = new ItemHistory();//= new ItemHistory[ itemCount ];
-			
+
 			history.makeArray( valueCount );
-			
+
 			String path = "result";
-//parametri			
+//parametri
 			String itemID = "itemid";
 			String itemData = "value";
 			String itemClock = "clock";
-			
+
 //tiek sagatavota klase datu un laika glabaasanai
-			
+
 				ObjectMapper mapper = new ObjectMapper();
 
 				JsonNode rootNode = mapper.readValue(entityString, JsonNode.class);
@@ -280,44 +280,44 @@ public class LogInActivity extends Activity implements OnClickListener {
 				JsonNode resultNode = rootNode.path(path);
 
 // paarstaigaasana ar iteratoru
-				Iterator<JsonNode> list = resultNode.elements(); 
+				Iterator<JsonNode> list = resultNode.elements();
 
 				int i = 0;
-				
+
 // ar iteratoru tiek apstaigaata visa mekleejot parametrus
 				do {
 					JsonNode element = list.next();
-			
-//paarbaude, lai nav iecikleesanaas parametru mekleesanaa					
+
+//paarbaude, lai nav iecikleesanaas parametru mekleesanaa
 					if ( i >= valueCount) {
-						
+
 						break;
-						
-//atbilstosajam resursdatora vienumam nolasa laiku un tajaa briidii nolasiito veertiibu						
+
+//atbilstosajam resursdatora vienumam nolasa laiku un tajaa briidii nolasiito veertiibu
 					} else if ( element.path( itemID ).toString()
-//							
+//
 							.replaceAll("\"", "").equals(equal) ) {
-						
+
 						history.setValue( element.path( itemData ).toString()
-//								
+//
 								.replaceAll("\"", ""), i );
-						
+
 						history.setClock( element.path( itemClock ).toString()
-//								
+//
 								.replaceAll("\"", ""), i );
-						
+
 						i++;
 					} else continue; //paarlec paari citu vieniibu datiem
-					
+
 					} while (list.hasNext());
 
-//tiek atdota resursdatoru vienumu dati, kuri ir saglabaati ItemHistory objektos				
+//tiek atdota resursdatoru vienumu dati, kuri ir saglabaati ItemHistory objektos
 			return history;
 		}
-		
-//ja gadaas tuksaas veertiibas, tad taas tiek aizpildiitas ar "0", lai var sekmiigi uzziimeet grafiku		
+
+//ja gadaas tuksaas veertiibas, tad taas tiek aizpildiitas ar "0", lai var sekmiigi uzziimeet grafiku
 	public static ItemHistory[] nullToZero(ItemHistory[] history, int valueCount) {
-		
+
 		if (history == null) {
 			return history;
 		}

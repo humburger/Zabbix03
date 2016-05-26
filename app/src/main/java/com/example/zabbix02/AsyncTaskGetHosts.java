@@ -17,6 +17,7 @@ public class AsyncTaskGetHosts extends AsyncTask<Void, Void, String[]> {
 	private String auth;
 	private String[] hostName = null;
 	private String[] hostID = null;
+	private String[] alert = null;
 	private String[] hostStatus = null;
 	private String[] triggerValue = null;
 	private Context context;
@@ -54,7 +55,7 @@ public class AsyncTaskGetHosts extends AsyncTask<Void, Void, String[]> {
 	protected String[] doInBackground(Void... arg0) {
 
 		StringBuilder sb = new StringBuilder();
-		
+	//peiprasiijums peec resursdatoru nosaukumiem
 		sb.append("{\"jsonrpc\":\"2.0\",");
 		
 		sb.append("\"method\":\"host.get\",");
@@ -71,20 +72,46 @@ public class AsyncTaskGetHosts extends AsyncTask<Void, Void, String[]> {
 		
 		String sbString = sb.toString();
 
+		/*StringBuilder sb1 = new StringBuilder();
+
+		sb1.append("{\"jsonrpc\":\"2.0\",");
+
+		sb1.append("\"method\":\"alert.get\",");
+
+		sb1.append("\"params\":{");
+
+		sb1.append("\"output\":\"extend\"");
+
+		sb1.append("},");
+
+		sb1.append("\"auth\":\"").append(auth).append("\",");
+
+		sb1.append("\"id\":\"1\"}");
+
+		String sb1String = sb1.toString();
+*/
 		try {
 			
-// tiek nodibinaati sakari ar serveri
+// tiek nodibinaati sakari ar serveri, lai dabutu informaciju par resursdatoriem
 			HttpResponse response = LogInActivity.makePostRequest(sbString, zabbixApiUrl);
 			
 			HttpEntity entity = response.getEntity();
 			
 			String entityString = EntityUtils.toString(entity);
 
+			/*// tiek nodibinaati sakari ar serveri, lai dabutu informaciju par briidinaajumiem
+			HttpResponse response_alert = LogInActivity.makePostRequest(sb1String, zabbixApiUrl);
+
+			HttpEntity entity_alert = response.getEntity();
+
+			String entityString_alert = EntityUtils.toString(entity_alert);*/
+
 //tiek ieguuti visi resursdatora nosaukumi			
 			hostName = LogInActivity.getJsonParameters(entityString, "host", null, null);
 			
 //tiek ieguuti visi resursdatoru identifikaacijas numuri			
 			hostID = LogInActivity.getJsonParameters(entityString, "hostid", null, null);
+
 
 			
 			hostStatus = new String[ hostName.length ];
@@ -161,8 +188,8 @@ public class AsyncTaskGetHosts extends AsyncTask<Void, Void, String[]> {
 
 //ja veertiiba nav tuksa, seko rezultaatu apstraades turpinaajums		
 		if (result != null) {
-			
-			Intent intent = new Intent(activity, HostListActivity.class);
+
+			Intent intent = new Intent(activity, MainListActivity.class);
 			
 // tiek padoti mainiigo parametri resursdatoru saraksta atteelosanas modulim
 			intent.putExtra("auth", auth);
