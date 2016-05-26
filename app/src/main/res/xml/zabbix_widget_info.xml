@@ -7,7 +7,7 @@
     <!--widgetCategory attribute. This specifies if your widget can be available on the lock screen as well as on the home screen-->
 
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-
+    android:configure="com.example.zabbix02.WidgetLogInActivity"
     android:minWidth="120dp"
     android:minHeight="60dp"
     android:updatePeriodMillis="1800000"

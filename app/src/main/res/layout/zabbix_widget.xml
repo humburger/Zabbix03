@@ -20,5 +20,5 @@
         android:text="@string/login"
         android:textColor="#ffffff"
         android:textSize="20sp"
-         />
+        android:visibility="gone" />
 </LinearLayout>

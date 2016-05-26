@@ -18,6 +18,11 @@ import java.util.Random;
 //http://www.androidauthority.com/create-simple-android-widget-608975/
 public class ZabbixWidgetProvider extends AppWidgetProvider {
 
+    // String to be sent on Broadcast as soon as Data is Fetched
+    // should be included on WidgetProvider manifest intent action
+    // to be recognized by this WidgetProvider to receive broadcast
+    public static final String DATA_FETCHED = "com.wordpress.laaptu.DATA_FETCHED";
+
     /* https://github.com/laaptu/appwidget-listview/blob/appwidget-listview1/src/com/wordpress/laaptu/WidgetProvider.java
       * this method is called every 30 mins as specified on widgetinfo.xml
       * this method is also called on every phone reboot
@@ -62,6 +67,28 @@ public class ZabbixWidgetProvider extends AppWidgetProvider {
         //setting an empty view in case of no data
         remoteViews.setEmptyView(R.id.listViewWidget, R.id.empty_view);
         return remoteViews;
+    }
+
+    /*
+	 * It receives the broadcast as per the action set on intent filters on
+	 * Manifest.xml once data is fetched from RemotePostService,it sends
+	 * broadcast and WidgetProvider notifies to change the data the data change
+	 * right now happens on ListProvider as it takes RemoteFetchService
+	 * listItemList as data
+	 */
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        super.onReceive(context, intent);
+        if (intent.getAction().equals(DATA_FETCHED)) {
+            int appWidgetId = intent.getIntExtra(
+                    AppWidgetManager.EXTRA_APPWIDGET_ID,
+                    AppWidgetManager.INVALID_APPWIDGET_ID);
+            AppWidgetManager appWidgetManager = AppWidgetManager
+                    .getInstance(context);
+            RemoteViews remoteViews = updateWidgetListView(context, appWidgetId);
+            appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
+        }
+
     }
 }
 
