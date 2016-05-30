@@ -39,6 +39,12 @@
         <activity android:name=".TriggerListActivity" />
         <activity android:name=".TriggerActivity" />
         <activity android:name=".MainListActivity" />
+        <activity android:name=".NotificationReceiverActivity"/>
+        <activity android:name=".CreateNotificationActivity"/>
+        <activity android:name=".ScriptActivity"/>
+        <activity android:name=".MacroActivity"/>
+        <activity android:name="EventActivity"/>
+        <activity android:name=".MediaActivity"/>
 
         <!-- Declare Widget in the Application Manifest -->
 

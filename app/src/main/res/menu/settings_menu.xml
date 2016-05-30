@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <item
+        android:id="@+id/logout"
+        android:title="Logout"/>
+    <item
+        android:id="@+id/maintenance"
+        android:title="Maintenance"/>
+    <item
+        android:id="@+id/usrMacros"
+        android:title="User macros"/>
+    <item
+        android:id="@+id/scripts"
+        android:title="Scripts"/>
+    <item
+        android:id="@+id/usrMedia"
+        android:title="Media"/>
+
+</menu>

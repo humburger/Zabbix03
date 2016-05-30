@@ -239,7 +239,7 @@ public class TriggerListActivity extends ListActivity {
 @Override
 public boolean onCreateOptionsMenu(Menu menu) {
 				
-			getMenuInflater().inflate(R.menu.logout, menu);
+			getMenuInflater().inflate(R.menu.settings_menu, menu);
 				
 			return true;
 }	

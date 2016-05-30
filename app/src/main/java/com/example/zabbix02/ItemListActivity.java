@@ -162,7 +162,7 @@ public class ItemListActivity extends ListActivity {
 //tiek izveidots mobilaas ieriices menu pogas izveelne, kur ir tikai iespeeja atteikties no sisteemas@Override
 public boolean onCreateOptionsMenu(Menu menu) {
 					
-			getMenuInflater().inflate(R.menu.logout, menu);
+			getMenuInflater().inflate(R.menu.settings_menu, menu);
 					
 			return true;
 		}	

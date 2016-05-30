@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 //izveido izveeleetaa resursdatora izveelni: "Items", "Triggers", "Graphs".
 public class HostDetailsActivity extends ListActivity {
@@ -69,7 +68,7 @@ public class HostDetailsActivity extends ListActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 				
-				getMenuInflater().inflate(R.menu.logout, menu);
+				getMenuInflater().inflate(R.menu.settings_menu, menu);
 				
 				return true;
 	}	

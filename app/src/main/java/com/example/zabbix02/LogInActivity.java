@@ -53,6 +53,9 @@ public class LogInActivity extends Activity implements OnClickListener {
 //pieteiksanaas poga	
 	private Button LogIn;
 
+    //teksta garuma limits
+    private int limit = 50;
+
 	private String username = "";
 	private String password = "";
 	private String url = "";
@@ -97,9 +100,25 @@ public class LogInActivity extends Activity implements OnClickListener {
 //katram mainiigajam pieskir aizpildaamo lauku veertiibas
 		 username = usrName.getText().toString();
 
+        //ja teksts ir par garu, tad tiek piedaavaats ievadiit iisaaku, nodzeesot veco
+		 if (username.length() > limit) {
+			 usrName.setText("");
+			 Toast.makeText(this, "Please write shorter username.", Toast.LENGTH_LONG).show();
+		 }
+
 		 password = pssw.getText().toString();
 
+		 if (password.length() > limit) {
+		    pssw.setText("");
+			Toast.makeText(this, "Please write shorter password.", Toast.LENGTH_LONG).show();
+		 }
+
 		 url = zabbixUrl.getText().toString();
+
+         if (url.length() > limit) {
+            zabbixUrl.setText("");
+            Toast.makeText(this, "Please write shorter home page address.", Toast.LENGTH_LONG).show();
+         }
 
 		 zabbixApiUrl = "http://" + url + "/zabbix/api_jsonrpc.php";
 		

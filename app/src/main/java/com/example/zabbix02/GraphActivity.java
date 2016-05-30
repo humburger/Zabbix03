@@ -2,7 +2,6 @@ package com.example.zabbix02;
 
 import java.util.concurrent.ExecutionException;
 
-import com.jjoe64.graphview.CustomLabelFormatter;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GraphView.GraphViewData;
 import com.jjoe64.graphview.GraphView.LegendAlign;
@@ -202,7 +201,7 @@ public class GraphActivity extends Activity {
 //
 ////					  	Log.e("valueInt = ", valueInt + "");
 //
-//					  	valueString = MainActivity.convertTimestamp( valueInt, "dd-mm-yyyy HH:mm" );
+//					  	valueString = MainActivity.convertTimestamp( valueInt, "yyyy-MM-dd HH:mm" );
 //
 //			            return valueString;
 //
@@ -331,6 +330,7 @@ public class GraphActivity extends Activity {
 								} );
 						
 					} else {
+						//stopThread(getHistory);
 						stopThread(drawGraphTask);
                         break;
 					}
@@ -341,7 +341,8 @@ public class GraphActivity extends Activity {
 	//uzdevuma apstaadinaasana
 	private synchronized void stopThread(Thread theThread)
 					{
-					    if (theThread != null)
+                        //theThread.cancel(true);
+						if (theThread != null)
 						    {
 						        theThread = null;
 						    }
@@ -363,7 +364,7 @@ public class GraphActivity extends Activity {
 @Override
 public boolean onCreateOptionsMenu(Menu menu) {
 						
-				getMenuInflater().inflate(R.menu.logout, menu);
+				getMenuInflater().inflate(R.menu.settings_menu, menu);
 						
 				return true;
 		}	
@@ -373,9 +374,13 @@ public boolean onCreateOptionsMenu(Menu menu) {
 public boolean onOptionsItemSelected(MenuItem item) {
 			         
 			if (item.getItemId() == R.id.logout) {
-			        	
-			       new AsyncTaskLogOut(this, this).execute(auth, zabbixApiUrl);
-			        	
+
+                //apstaadina fona uzdevumu
+                //http://stackoverflow.com/a/7821386
+                getHistory.cancel(true);
+
+                new AsyncTaskLogOut(this, this).execute(auth, zabbixApiUrl);
+
 			      }
 				return false;
 		}	

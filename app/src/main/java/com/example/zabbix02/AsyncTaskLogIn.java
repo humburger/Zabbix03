@@ -88,7 +88,7 @@ public class AsyncTaskLogIn extends AsyncTask<String, Void, String> {
 			String entityString = EntityUtils.toString(entity);
 			
 //log			
-			Log.e("json", entityString);
+			Log.e("AsyncTaskLogIn: ", entityString);
 //
 			
 //tiek sanemts rezultaats

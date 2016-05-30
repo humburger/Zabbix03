@@ -80,6 +80,8 @@ public class AsyncTaskLogOut extends AsyncTask<String, Void, String> {
 			HttpEntity entity = response.getEntity();
 			
 			entityString = EntityUtils.toString(entity);
+
+			Log.e("AsyncTaskLogOut user.logout ", entityString);
 			
 //lietotaaju atteiksnaas datu struktuura			
 			UserLogout untyped = mapper.readValue(entityString,

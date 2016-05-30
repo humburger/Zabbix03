@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import com.example.zabbix02.MainListActivity;
 
 //izveido un atteelo resursdatoru sarakstu
 public class HostListActivity extends Activity implements OnItemClickListener{
@@ -119,12 +120,13 @@ public class HostListActivity extends Activity implements OnItemClickListener{
 @Override
 public boolean onCreateOptionsMenu(Menu menu) {
 			
-			getMenuInflater().inflate(R.menu.logout, menu);
+			getMenuInflater().inflate(R.menu.settings_menu, menu);
 			
 			return true;
-}	
+}
+
 	
-//atteiksanaas no sisteemas	
+//atteiksanaas no sisteemas
 	@Override
     public boolean onOptionsItemSelected(MenuItem item) {
          
@@ -134,5 +136,5 @@ public boolean onCreateOptionsMenu(Menu menu) {
         	
         }
 		return false;
-    }    
+    }
 }

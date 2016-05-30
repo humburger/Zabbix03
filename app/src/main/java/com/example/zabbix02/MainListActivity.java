@@ -7,14 +7,19 @@
 package com.example.zabbix02;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -29,6 +34,8 @@ public class MainListActivity extends Activity implements OnItemClickListener{
 	private ListView listView;
 	private ArrayList<HostStatus> arrayList;
 	private HostStatusAdapter adapter;
+	private Context context;
+	private AlertDialog.Builder itemDetails;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -100,34 +107,44 @@ public class MainListActivity extends Activity implements OnItemClickListener{
 				
 				arrayList.add( new HostStatus(getString(R.string.all_hosts), R.drawable.arrow));
 			}
+        arrayList.add( new HostStatus(getString(R.string.all_events), R.drawable.walle));
 	}
 
 //kad uzspiez uz izveeleetaa resursdatora noasaukuma, tad tiek atveerta taa izveelne
 	public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-		
 		HostStatus item = adapter.getItem(position);
 
 		choosenListItemName = item.getName();
 
-			Intent intent = new Intent(this, HostListActivity.class);
+        if (choosenListItemName.equals(getString(R.string.all_hosts))) {
+            Intent intent = new Intent(this, HostListActivity.class);
 
-			// tiek padoti mainiigo parametri resursdatoru saraksta atteelosanas modulim
-			intent.putExtra("auth", auth);
+            // tiek padoti mainiigo parametri resursdatoru saraksta atteelosanas modulim
+            intent.putExtra("auth", auth);
 
-			intent.putExtra("zabbixApiUrl", zabbixApiUrl);
+            intent.putExtra("zabbixApiUrl", zabbixApiUrl);
 
-			intent.putExtra("hostListArray", hostName);
+            intent.putExtra("hostListArray", hostName);
 
-			intent.putExtra("hostStatus", hostStatus);
+            intent.putExtra("hostStatus", hostStatus);
 
-			this.startActivity(intent);
+            this.startActivity(intent);
+        } else if (choosenListItemName.equals(getString(R.string.all_events))) {
+            new AsyncTaskGetEvents(this, this, auth, zabbixApiUrl).execute();
+        }
+
+
+
+        /*//testing notifications
+        Intent intent = new Intent(this, CreateNotificationActivity.class);
+        this.startActivity(intent);*/
 			}
 
 //tiek izveidots mobilaas ieriices menu pogas izveelne, kur ir tikai iespeeja atteekties no sisteemas
 @Override
 public boolean onCreateOptionsMenu(Menu menu) {
 			
-			getMenuInflater().inflate(R.menu.logout, menu);
+			getMenuInflater().inflate(R.menu.settings_menu, menu);
 			
 			return true;
 }	
@@ -135,11 +152,27 @@ public boolean onCreateOptionsMenu(Menu menu) {
 //atteiksanaas no sisteemas	
 	@Override
     public boolean onOptionsItemSelected(MenuItem item) {
-         
+
         if (item.getItemId() == R.id.logout) {
-        	
-        	new AsyncTaskLogOut(this, this).execute(auth, zabbixApiUrl);
-        	
+
+            new AsyncTaskLogOut(this, this).execute(auth, zabbixApiUrl);
+
+        } else if (item.getItemId() == R.id.usrMacros) {
+
+            new AsyncTaskGetMacros(this, this, auth, zabbixApiUrl).execute();
+
+        } else if (item.getItemId() == R.id.maintenance) {
+
+            new AsyncTaskGetMaintenance(this, this, auth, zabbixApiUrl).execute();
+
+		} else if (item.getItemId() == R.id.scripts) {
+
+            new AsyncTaskGetScript(this, this, auth, zabbixApiUrl).execute();
+
+        } else if (item.getItemId() == R.id.usrMedia) {
+
+            new AsyncTaskGetMedia(this, this, auth, zabbixApiUrl).execute();
+
         }
 		return false;
     }    
