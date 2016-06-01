@@ -32,7 +32,7 @@ public class AsyncTaskGetEvents extends AsyncTask<Void, Void, String[]> {
     private String[] triggerComments = null;
     private Context context;
     private String hostID;
-    private int zero = 0;
+//    private int zero = 0;
     private Activity activity;
     private ProgressDialog progressDialog;
 
@@ -67,7 +67,7 @@ public class AsyncTaskGetEvents extends AsyncTask<Void, Void, String[]> {
     }
 
     protected String[] doInBackground(Void... arg0) {
-        //
+
         StringBuilder sb = new StringBuilder();
 
         sb.append("{\"jsonrpc\":\"2.0\",");
@@ -105,13 +105,10 @@ public class AsyncTaskGetEvents extends AsyncTask<Void, Void, String[]> {
 
             objectIDs = LogInActivity.getJsonParameters(entityString, "objectid", null, null);
             objectClock = LogInActivity.getJsonParameters(entityString, "clock", null, null);
-            //String[] nanoSec = LogInActivity.getJsonParameters(entityString, "ns", null, null);
 
             for (int i = 0; i < objectClock.length; i++) {
                 objectClock[ i ] = LogInActivity.convertTimestamp(Long.parseLong(objectClock[ i ]) , "yyyy-MM-dd HH:mm");
             }
-//
-            //triggerID = objectIDs[zero];
 
             sb = new StringBuilder();
 
@@ -122,8 +119,6 @@ public class AsyncTaskGetEvents extends AsyncTask<Void, Void, String[]> {
             sb.append("\"params\":{");
 
             sb.append("\"output\": [\"triggerid\",").append("\"description\",").append("\"priority\"],");
-
-           // sb.append("\"filter\": {\"value\": \"1\" },");
 
             sb.append("\"sortfield\": \"priority\",");
 
@@ -178,20 +173,9 @@ public class AsyncTaskGetEvents extends AsyncTask<Void, Void, String[]> {
     // rezultaatu izvade
     protected void onPostExecute(String[] result) {
 
-        Log.e("AsyncTaskGetEvent ", result[0]);
-
         if (result != null) {
 
-            uiMssg = "Successfully created trigger list";
-
-           /* for (int i = 0; i < objectIDs.length; i++) {
-
-                for (int j = 0; j < triggerID.length; j++) {
-                    if (objectIDs[ i ].equals(triggerID[ j ])) {
-
-                    }
-                }
-            }*/
+            uiMssg = "Successfully created event list";
 
 //trigeru nopietniibas pakaapes
             for (int i = 0; i < triggerDescription.length; i++) {

@@ -1,7 +1,7 @@
 /**
  * Girts Vilumsons
  * 
- * Resursdatoru saraksta atteelosanas modulis
+ * Resursdatoru kopaktaaka saraksta atteelosanas modulis
  * 
  * */
 package com.example.zabbix02;
@@ -133,11 +133,6 @@ public class MainListActivity extends Activity implements OnItemClickListener{
             new AsyncTaskGetEvents(this, this, auth, zabbixApiUrl).execute();
         }
 
-
-
-        /*//testing notifications
-        Intent intent = new Intent(this, CreateNotificationActivity.class);
-        this.startActivity(intent);*/
 			}
 
 //tiek izveidots mobilaas ieriices menu pogas izveelne, kur ir tikai iespeeja atteekties no sisteemas
@@ -160,10 +155,6 @@ public boolean onCreateOptionsMenu(Menu menu) {
         } else if (item.getItemId() == R.id.usrMacros) {
 
             new AsyncTaskGetMacros(this, this, auth, zabbixApiUrl).execute();
-
-        } else if (item.getItemId() == R.id.maintenance) {
-
-            new AsyncTaskGetMaintenance(this, this, auth, zabbixApiUrl).execute();
 
 		} else if (item.getItemId() == R.id.scripts) {
 

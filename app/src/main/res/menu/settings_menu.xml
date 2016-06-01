@@ -3,9 +3,9 @@
     <item
         android:id="@+id/logout"
         android:title="Logout"/>
-    <item
-        android:id="@+id/maintenance"
-        android:title="Maintenance"/>
+    <!--<item-->
+        <!--android:id="@+id/maintenance"-->
+        <!--android:title="Maintenance"/>-->
     <item
         android:id="@+id/usrMacros"
         android:title="User macros"/>
