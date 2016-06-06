@@ -22,19 +22,14 @@ import org.apache.http.impl.client.DefaultHttpClient;
 //tiek izmantota atveertaas programmatuuras biblioteeka JSON datu parseesanai//
 
 //http://www.java2s.com/Code/Jar/j/Downloadjacksoncore223jar.htm
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -360,7 +355,7 @@ public class LogInActivity extends Activity implements OnClickListener {
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.login, menu);
+		//getMenuInflater().inflate(R.menu.log_out_menu, menu);
 
 		return true;
 	}

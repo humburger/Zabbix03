@@ -158,7 +158,7 @@ public class MediaActivity extends ListActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.settings_menu, menu);
+        getMenuInflater().inflate(R.menu.log_out_menu, menu);
 
         return true;
     }

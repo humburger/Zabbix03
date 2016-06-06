@@ -120,7 +120,7 @@ public class HostListActivity extends Activity implements OnItemClickListener{
 @Override
 public boolean onCreateOptionsMenu(Menu menu) {
 			
-			getMenuInflater().inflate(R.menu.settings_menu, menu);
+			getMenuInflater().inflate(R.menu.log_out_menu, menu);
 			
 			return true;
 }

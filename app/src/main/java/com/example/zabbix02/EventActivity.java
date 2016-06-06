@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EventActivity extends ListActivity {
 
@@ -86,7 +87,6 @@ public class EventActivity extends ListActivity {
             for (int j = 0; j < triggerIDs.length; j++) {
                 if (objectIDs[ i ].equals(triggerIDs[ j ])) {
                     triggerEventTitles[ i ] = triggerDescription[ j ];
-
                 }
             }
         }
@@ -108,7 +108,11 @@ public class EventActivity extends ListActivity {
         //tiek sagatavoti dati par notikumiem
         //String[] triggerEventTitles = new String[num];
 
-        String[] choosenTiggerExpression = new String[num];
+        //StringBuilder choosenTriggerExp = new StringBuilder(null);
+
+        String[] choosenTiggerExpression = null;
+        choosenTiggerExpression = new String[ num ];
+       //List<String> choosenTriggerExp = new List<String>();
 
         String[] choosenTriggerPriority = new String[num];
 
@@ -117,7 +121,7 @@ public class EventActivity extends ListActivity {
                 if (objectIDs[ i ].equals(triggerIDs[ j ])) {
                     triggerEventTitles[ i ] = triggerDescription[ j ];
                     choosenTiggerExpression[ i ] = triggerExpression[ j ];
-                    choosenTriggerPriority[ i ] = triggerPriority[ j ];
+                  //  choosenTriggerPriority[ i ] = triggerPriority[ j ];
                 }
             }
         }
@@ -170,7 +174,7 @@ public class EventActivity extends ListActivity {
 
                     triggerArrayList.add(new Details("Expression: ", choosenTiggerExpression[i]));
 //
-                    triggerArrayList.add(new Details("Severity: ", choosenTriggerPriority[i]));
+                  //  triggerArrayList.add(new Details("Severity: ", choosenTriggerPriority[i]));
 
                     triggerArrayList.add(new Details("Time: ", objectClock[i]));
 

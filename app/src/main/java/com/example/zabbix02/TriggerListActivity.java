@@ -239,7 +239,7 @@ public class TriggerListActivity extends ListActivity {
 @Override
 public boolean onCreateOptionsMenu(Menu menu) {
 				
-			getMenuInflater().inflate(R.menu.settings_menu, menu);
+			getMenuInflater().inflate(R.menu.log_out_menu, menu);
 				
 			return true;
 }	
@@ -250,7 +250,7 @@ public boolean onOptionsItemSelected(MenuItem item) {
 	         
         if (item.getItemId() == R.id.logout) {
 	        	
-       	new AsyncTaskLogOut(this, this).execute(auth, zabbixApiUrl);
+       		new AsyncTaskLogOut(this, this).execute(auth, zabbixApiUrl);
         }
 		return false;
     } 
