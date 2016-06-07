@@ -120,8 +120,8 @@ public class EventActivity extends ListActivity {
             for (int j = 0; j < triggerIDs.length; j++) {
                 if (objectIDs[ i ].equals(triggerIDs[ j ])) {
                     triggerEventTitles[ i ] = triggerDescription[ j ];
-                    choosenTiggerExpression[ i ] = triggerExpression[ j ];
-                  //  choosenTriggerPriority[ i ] = triggerPriority[ j ];
+                   // choosenTiggerExpression[ i ] = triggerExpression[ j ];
+                   // choosenTriggerPriority[ i ] = triggerPriority[ j ];
                 }
             }
         }
@@ -172,9 +172,9 @@ public class EventActivity extends ListActivity {
 
                     triggerArrayList.add(new Details("Name: ", triggerEventTitles[i]));
 
-                    triggerArrayList.add(new Details("Expression: ", choosenTiggerExpression[i]));
-//
-                  //  triggerArrayList.add(new Details("Severity: ", choosenTriggerPriority[i]));
+                    //triggerArrayList.add(new Details("Expression: ", choosenTiggerExpression[i]));
+//piemērs
+                    triggerArrayList.add(new Details("Severity: ", "Warning"));
 
                     triggerArrayList.add(new Details("Time: ", objectClock[i]));
 
@@ -196,7 +196,7 @@ public class EventActivity extends ListActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.settings_menu, menu);
+        getMenuInflater().inflate(R.menu.log_out_menu, menu);
 
         return true;
     }

@@ -191,6 +191,8 @@ public class AsyncTaskGetEvents extends AsyncTask<Void, Void, String[]> {
                 triggerPriority[ i ] = triggerPriority[ i ].replace("3", "Average");
                 triggerPriority[ i ] = triggerPriority[ i ].replace("4", "Hight");
                 triggerPriority[ i ] = triggerPriority[ i ].replace("5", "Disaster");
+                //piemēra variants
+                triggerDescription[ i ] = triggerDescription[ i ].replace("{HOST.NAME}", "Zabbix");
             }
 
 //trigeru parametru padosana taalaak
